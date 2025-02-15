@@ -122,11 +122,39 @@ def onCloseWindow():
         window.destroy()
 
 
-def encrypt(message):
+def encrypt(message_in):
+    key = 5
+    alphabet = ''.join(chr(i) for i in range(256))  # jeito burro mas prestavel da tabela ASCII estendida
+    message = ''
+
+    for letter in message_in:
+        if letter in alphabet:
+            num = alphabet.find(letter)
+            num = num + key
+            if num >= len(alphabet):
+                num = num - len(alphabet)
+            message = message + alphabet[num]
+        else:
+            message = message + letter
+
     return message
 
 
-def decrypt(message):
+def decrypt(message_in):
+    key = 5
+    alphabet = ''.join(chr(i) for i in range(256)) 
+    message = ''
+
+    for letter in message_in:
+        if letter in alphabet:
+            num = alphabet.find(letter)
+            num = num - key
+            if num < 0 :
+                num = num + len(alphabet)
+            message = message + alphabet[num]
+        else:
+            message = message + letter
+
     return message
 
 
