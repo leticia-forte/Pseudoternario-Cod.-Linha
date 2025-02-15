@@ -1,5 +1,5 @@
 import socket
-def client(host = 'localhost', port=8080): 
+def client(host = '192.168.0.233', port=8080): 
     # Create a TCP/IP socket 
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
     # Connect the socket to the server 
